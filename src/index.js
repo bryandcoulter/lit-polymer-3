@@ -1,1 +1,1 @@
-import './lit-test';
+import './lit-element';

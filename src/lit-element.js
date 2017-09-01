@@ -3,7 +3,7 @@ import { Element as PolymerElement } from '../node_modules/@polymer/polymer/poly
 import { MyButton } from './my-button';
 
 const clickMessage = 'Total Button Clicks : ';
-export default class LitTest extends PolymerElement {
+export default class LitElement extends PolymerElement {
   static get properties() {
     return {
       message: {
@@ -29,7 +29,6 @@ export default class LitTest extends PolymerElement {
 
   ready() {
     super.ready();
-    console.dir(this);
     render(this.generateTemplate(), this.shadowRoot);
     this.addEventListener('button-fired', function () {
       this.clicks++;
@@ -65,4 +64,4 @@ export default class LitTest extends PolymerElement {
   }
 }
 
-window.customElements.define('lit-test', LitTest);
+window.customElements.define('lit-element', LitElement);
