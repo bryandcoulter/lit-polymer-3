@@ -7,16 +7,27 @@ export class MyButton extends PolymerElement {
         type: Number,
         value: 0,
       },
+      message: {
+        type: String,
+        value: '',
+      },
+      myClicks: {
+        type: Number,
+        value: 0,
+      },
     };
   }
 
   static get template() {
     return `
-      <button on-click="fire">Click count [[clicks]]</button>
+      <button on-click="fire">[[message]]</button>
+      <div>My Clicks: [[myClicks]]</div>
+      <div>Total Clicks: [[clicks]]</div>
     `;
   }
 
   fire() {
+    this.myClicks++;
     this.dispatchEvent(new CustomEvent('button-fired', {
       bubbles: true,
       composed: true,

@@ -2,7 +2,7 @@ import { html, render } from 'lit-html';
 import { Element as PolymerElement } from '../node_modules/@polymer/polymer/polymer-element.js';
 import { MyButton } from './my-button';
 
-const clickMessage = 'I have been clicked : ';
+const clickMessage = 'Total Button Clicks : ';
 export default class LitTest extends PolymerElement {
   static get properties() {
     return {
@@ -13,6 +13,10 @@ export default class LitTest extends PolymerElement {
       clicks: {
         type: Number,
         value: 0,
+      },
+      buttonMessages: {
+        type: Array,
+        value: ['button 1', 'button 2', 'button 3', 'button 4', 'button 5'],
       },
     };
   }
@@ -56,7 +60,7 @@ export default class LitTest extends PolymerElement {
         }
       </style>
       <div> ${this.message} </div>
-      <my-button clicks="${this.clicks}"></my-button>
+      ${this.buttonMessages.map((i) => html`<my-button message="${i}" clicks="${this.clicks}"></my-button>`)}
     `;
   }
 }
