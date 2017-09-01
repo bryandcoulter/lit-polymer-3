@@ -5,7 +5,7 @@ export class MyButton extends PolymerElement {
     return {
       clicks: {
         type: Number,
-        value: 1,
+        value: 0,
       },
     };
   }
@@ -17,7 +17,6 @@ export class MyButton extends PolymerElement {
   }
 
   fire() {
-    console.log('inside');
     this.dispatchEvent(new CustomEvent('button-fired', {
       bubbles: true,
       composed: true,
